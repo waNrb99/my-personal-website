@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大美山西 - 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            background-color: #f0f4f8; /* 先用纯色背景保底 */
+            /* 如果你有背景图，等网页跑通了，再把下面这行的注释去掉 */
+            /* background-image: url('bg.jpg'); */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        nav {
+            background-color: rgba(44, 62, 80, 0.95);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 60px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        /* 这是控制图片大小的样式 */
+        .hero-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html ">首页</a >
+        <a href="about.html">山西概况</a >
+        <a href="hobby.html">名胜古迹</a >
+        <a href="study.html">舌尖美食</a >
+        <a href="gallery.html">图文相册</a >
+    </nav>
+
+    <main class="container">
+        <h1>欢迎来到大美山西主页</h1>
+        <p>这是《计算机基础》课程设计网页作业。</p >
+        <p>在这里你可以了解山西的历史文化、自然风光以及特色美食。</p >
+        
+        <!-- 注意这里：你要确保文件夹里有一张叫 shanxi.jpg 的图片，否则网页上只显示一个小裂图 -->
+        < img src="OIP-C.webp" alt="山西风景" class="hero-img">
+    </main>
+</body>
+</html>
