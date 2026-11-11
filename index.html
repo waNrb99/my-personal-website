@@ -19,7 +19,15 @@
             background-position: center;
             background-attachment: fixed;
         }
-      
+        nav {
+    background-color: rgba(30, 40, 50, 0.98); /* 极深的黑灰色，几乎不透明 */
+    padding: 20px;
+    text-align: center;
+    position: sticky; 
+    top: 0;
+    z-index: 9999; /* 核心：把它放在最高层，任何背景图都挡不住它 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* 加个阴影让它更立体 */
+}
 
 
         nav a {
