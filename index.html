@@ -19,14 +19,9 @@
             background-position: center;
             background-attachment: fixed;
         }
-        nav {
-            background-color: rgba(44, 62, 80, 0.95);
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+      
+
+
         nav a {
             color: white;
             text-decoration: none;
@@ -89,6 +84,28 @@
     </style>
 </head>
 <body>
+      <!-- 华丽入场过渡页 开始 -->
+<div id="welcome-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(20, 20, 20, 0.95); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s ease;">
+    
+    <!-- 过渡页的大标题 -->
+    <h1 style="color: #f39c12; font-size: 48px; letter-spacing: 5px; text-shadow: 0 0 20px rgba(243, 156, 18, 0.6); margin-bottom: 20px;">
+        大美山西
+    </h1>
+    <p style="color: #ffffff; font-size: 18px; margin-bottom: 40px; letter-spacing: 2px;">
+        表里山河，晋善晋美
+    </p >
+    
+    <!-- 进入按钮（用了 onclick 触发消失效果） -->
+    <button onclick="document.getElementById('welcome-screen').style.opacity = '0'; setTimeout(function(){document.getElementById('welcome-screen').style.visibility = 'hidden';}, 800);" 
+            style="padding: 12px 40px; font-size: 18px; color: #2c3e50; background-color: #f39c12; border: none; border-radius: 30px; cursor: pointer; font-weight: bold; box-shadow: 0 0 20px rgba(243, 156, 18, 0.5); transition: all 0.3s;" 
+            onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 30px rgba(243, 156, 18, 0.8)';" 
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(243, 156, 18, 0.5)';">
+        点击进入 →
+    </button>
+    
+</div>
+<!-- 华丽入场过渡页 结束 -->
+
     <nav>
         <a href="index.html ">首页</a >
         <a href="about.html">山西概况</a >
