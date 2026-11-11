@@ -14,7 +14,7 @@
             font-family: "Microsoft Yahei", sans-serif;
             background-color: #f0f4f8; /* 先用纯色背景保底 */
             /* 如果你有背景图，等网页跑通了，再把下面这行的注释去掉 */
-            /* background-image: url('bg.jpg'); */
+            background-image: url('beij2.webp'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,7 +32,24 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
-            transition: 0.3s;
+            transition: all 0.3s esae;
+            position:relative;
+            padding-bottom:5px;
+        }
+           nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #f39c12;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
         nav a:hover {
             color: #f39c12;
@@ -42,7 +59,7 @@
             width: 80%;
             max-width: 900px;
             margin: 60px auto;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.65);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -68,6 +85,25 @@
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        /* 定义背景呼吸动画 */
+        @keyframes bgBreathe {
+            0% { background-size: 100% auto; }
+            50% { background-size: 110% auto; }
+            100% { background-size: 100% auto; }
+}
+        body {
+    /* ...前面必须有背景图的设置... */
+               background-image: url('beij2.webp'); 
+    /* ...下面必须要有这两行，动画才会生效... */
+               animation: bgBreathe 8s ease-in-out infinite;
+               background-position: center center; 
+}
+/* 图片缓慢上下漂浮的动画 */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); } /* 向上飘20像素 */
+    100% { transform: translateY(0); }
+}
     </style>
 </head>
 <body>
@@ -80,15 +116,28 @@
     </nav>
 
     <main class="container">
-       <h1>山西风光掠影</h1>
-       <p>用镜头记录三晋大地的壮美。</p >
+      
+      <h1 style="color: #ffffff; text-shadow: 2px 2px 5px rgba(0,0,0,0.6); margin-bottom: 20px;">山西风光掠影</h1>
 
-<!-- 这里放两张图，因为前面设置过 .hero-img 的宽度，它们会很好地排列 -->
-      <img src="OIP-C.webp" alt="山西风景1" class="hero-img" style="width: 45%; margin-right: 2%;">
-      <img src="daohaohs.jpg" alt="山西风景2" class="hero-img" style="width: 45%; margin-left: 2%;">
-        
-        <!-- 注意这里：你要确保文件夹里有一张叫 shanxi.jpg 的图片，否则网页上只显示一个小裂图 -->
+<p style="color: #555555; font-weight: bold; margin-bottom: 40px;">用镜头记录三晋大地的壮美。</p >
+<div style="display: flex; justify-content: center; gap: 50px;">
+    
+    <!-- 左边的图 -->
+    <div style="width: 42%; animation: floatUpDown 4s ease-in-out infinite;">
+        <img src="OIP-C.webp" alt="山西风景" style="width: 100%; height: 250px; object-fit: cover; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
        
+        <p style="font-size: 16px; color: #2c3e50; font-weight: bold; margin-top: 15px; text-shadow: 0 0 8px rgba(255,255,255,0.8);">🏯 古城暮色，岁月静好</p >
+    </div>
+
+    <!-- 右边的图 (延迟一点点，制造波浪感) -->
+    <div style="width: 42%; animation: floatUpDown 4s ease-in-out 1.5s infinite;">
+        <img src="daohaohs.jpg" alt="大好河山" style="width: 100%; height: 250px; object-fit: cover; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+        
+        <p style="font-size: 16px; color: #2c3e50; font-weight: bold; margin-top: 15px; text-shadow: 0 0 8px rgba(255,255,255,0.8);">⛰️ 表里山河，落日余晖</p >
+    </div>
+
+</div>
+
     </main>
 </body>
 </html>

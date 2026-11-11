@@ -32,33 +32,84 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            position:relative;
+            padding-bottom:5px;
+        }
+           nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #f39c12;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
         nav a:hover {
             color: #f39c12;
             font-weight: bold;
         }
         .container {
+           
             width: 80%;
             max-width: 900px;
-            margin: 60px auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 80px auto; /* 加大上下边距，让悬浮感更强 */
+    
+    /* 1. 基础底色：清透的白 */
+            background: rgba(255, 255, 255, 0.1); 
+    
+    /* 2. 核心：模糊背后的风景，产生玻璃厚度 */
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+    
+    /* 3. 3D 边框：左边和上边高光（亮），右边和下边暗光，产生体积感 */
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.8);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* 4. 大圆角 */
+            border-radius: 30px; 
+    
+    /* 5. 立体悬浮阴影：一层深阴影往下压，一层浅阴影做环境光 */
+            box-shadow: 
+            0 25px 45px rgba(0, 0, 0, 0.4), /* 底部深色阴影，让卡片“浮”起来 */
+            inset 0 0 20px rgba(255, 255, 255, 0.5); /* 内侧的一圈白色光晕，像玻璃内部的反光 */
+    
+            padding: 50px 40px;
             text-align: center;
-        }
+    
+    /* 6. 倾斜动画：鼠标放上去，玻璃块会微微抬起 */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 鼠标悬停时的极致 3D 互动 */
+.container:hover {
+    transform: translateY(-10px); /* 往上浮 */
+    box-shadow: 
+        0 35px 60px rgba(0, 0, 0, 0.5), /* 阴影变深变长 */
+        inset 0 0 30px rgba(255, 255, 255, 0.7);
+}
+        
         h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 36px;
-        }
+    color: #ffffff; /* 改成纯白 */
+    text-shadow: 0 0 15px rgba(243, 156, 18, 0.8); /* 加上橘色光晕 */
+    margin-bottom: 20px;
+    font-size: 36px;
+}
         p {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
+    font-size: 18px;
+    color: #f0f0f0; /* 浅灰/近白色 */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
         /* 这是控制图片大小的样式 */
         .hero-img {
             width: 100%;
@@ -68,6 +119,18 @@
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        /* 在网页上方蒙一层淡淡的黑纱，让背景暗下来 */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* 这里的 0.4 就是暗度，如果觉得不够暗可以改成 0.5 */
+        z-index: -1; /* 放在最底层，不挡着文字和玻璃 */
+        pointer-events: none; /* 防止挡住鼠标点击 */
+}
     </style>
 </head>
 <body>
@@ -86,8 +149,8 @@
        </blockquote>
        <p>山西素有“面食之乡”的美誉，一碗刀削面，配上几滴正宗的老陈醋，是无数山西游子最深的乡愁。</p >
        <p>除了面食，平遥牛肉、过油肉也是不可错过的美味。</p >
-
-       <img src="food.jpg" alt="山西刀削面" class="hero-img">
+       <img src="dongtu.gif" alt="动图" style="width: 120px; display: block; margin: 20px auto;">
+       <img src="food.jpg" alt="山西刀削面" style="width: 80%; max-width: 500px; height: auto; border-radius: 12px; border: 8px solid rgba(255, 255, 255, 0.8); box-shadow: 0 15px 30px rgba(0,0,0,0.4); margin: 20px auto; display: block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
            
     </main>
 </body>
